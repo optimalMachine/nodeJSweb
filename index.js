@@ -1,10 +1,27 @@
-var figlet = require("figlet");
+const express = require('express')
+const app = express()
+const port = 3000
 
-figlet("Hi, there", function (err, data) {
-  if (err) {
-    console.log("Something went wrong...");
-    console.dir(err);
-    return;
-  }
-  console.log(data);
-});
+app.get('/', (req, res)=> {
+  res.send('Hello World')
+})
+
+app.get('/dog', (req, res)=> {
+  res.send('dog')
+})
+
+app.get('/user/:id',(req,res)=>{
+  const p = req.params
+  console.log(p)
+  const q = req.query
+  console.log(p.id)  
+  res.json({'userID':p.id})
+})
+
+app.get('/cat', (req, res)=> {
+  res.send('cat')
+})
+
+app.listen(port,()=>{
+  console.log(`listening on port ${port}`)
+})
