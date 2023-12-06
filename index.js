@@ -14,7 +14,7 @@ app.get('/user/:id',(req,res)=>{
   const p = req.params
   console.log(p)
   const q = req.query
-  console.log(p.id)  
+  console.log(p)  
   res.json({'userID':p.id})
 })
 
