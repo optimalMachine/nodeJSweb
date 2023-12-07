@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>오늘의 강릉 날씨</h1>
+        <button onClick="getWeather()">get Weather</button>
+        <p id="temperature"></p>
+        <script>
+            function getWeather(){
+                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                const targetUrl = 'https://goweather.herokuapp.com/weather/London';
+                fetch('https://goweather.herokuapp.com/weather/London') 
+                .then(response => response.json()) // 응답을 JSON 형태로 변환
+                .then(data => { // 변환된 데이터 처리
+                    document.getElementById('temperature').innerHTML = data['temperature']
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+        </script>
+    </body>
+</html>
