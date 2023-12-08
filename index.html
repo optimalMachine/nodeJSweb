@@ -9,15 +9,19 @@
     <body>
         <h1 id="sound">소리 API</h1>
         <input id = "name" type = "text">
-        <button onclick='getsound()'>API 요청</button>
+        <h2 id='realname'></h2>
+        <button onclick='getSound()'>API 요청</button>
         <script>
-            function getsound() {
-                const name = document.getElementById('name').value;
-                fetch(`https://localhost:3000/sound/${name}`)
-                    .then(response => response.json()) // JSON 형식으로 응답을 파싱
-                    .then(data => console.log(data)) // 데이터 처리
-                    .catch(error => console.error('Error:', error)); // 오류 처리
+            function getSound(){
+                const name = document.getElementById('name').value
+                console.log(name)
+                fetch(`http://localhost:3000/sound/${name}`) 
+                .then(response => response.json()) // 응답을 JSON 형태로 변환
+                .then(data => {
+                    console.log(data.sound)
+                    document.getElementById('realname').innerHTML = data.sound;
 
+                });
             }
         </script>
         

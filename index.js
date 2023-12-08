@@ -20,14 +20,13 @@ app.get('/cat', (req, res)=> {
 app.get('/sound/:name', (req, res)=>{
   const { name } = req.params
   if (name == 'dog'){
-    res.json({'sound': name})
+    res.json({'sound': '멍멍'})
   }else if(name == 'cat'){
-    res.json(({'sound': name}))
+    res.json(({'sound': '야옹'}))
   }else{
     res.json({ 'sound':'unknown'})
   }
   console.log(name)
-  res.json({ name })
 })
 
 
