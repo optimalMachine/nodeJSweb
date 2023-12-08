@@ -10,6 +10,7 @@
         <h1 id="sound">소리 API</h1>
         <input id = "name" type = "text">
         <h2 id='realname'></h2>
+        <div id="imageContainer"></div>
         <button onclick='getSound()'>API 요청</button>
         <script>
             function getSound(){
@@ -18,8 +19,9 @@
                 fetch(`http://localhost:3000/sound/${name}`) 
                 .then(response => response.json()) // 응답을 JSON 형태로 변환
                 .then(data => {
-                    console.log(data.sound)
+                    console.log(data)
                     document.getElementById('realname').innerHTML = data.sound;
+                    document.getElementById('imageContainer').innerHTML = `<img src="${data.img}" alt="로드된 이미지">`;
 
                 });
             }

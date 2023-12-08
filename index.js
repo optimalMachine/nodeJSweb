@@ -22,7 +22,7 @@ app.get('/sound/:name', (req, res)=>{
   if (name == 'dog'){
     res.json({'sound': '멍멍'})
   }else if(name == 'cat'){
-    res.json(({'sound': '야옹'}))
+    res.json(({'sound': '야옹','img':'https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=2815&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}))
   }else{
     res.json({ 'sound':'unknown'})
   }
